@@ -1,5 +1,3 @@
-// Assignment code here
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -15,10 +13,10 @@ function generatePassword() {
 
   // Strings of characters that can be added to password
 
-  const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-  const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const numerical = "0123456789";
-  const spcChars = "!@#$%^&*()_+~`|}{[]\:;?><,./-=";
+  var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+  var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numerical = "0123456789";
+  var spcChars = "!@#$%^&*()_+~`|}{[]\:;?><,./-=";
 
   // Set default number for password length
   // Creates prompts and measures whether the answer is between 8-128
@@ -30,7 +28,60 @@ function generatePassword() {
       return;
   }
 
-}
+  // Creates password category variables set to false
+  var pswLowerCase = false;
+  var pswUpperCase = false;
+  var pswNumerical = false;
+  var pswSpc = false;
+
+  // Creates the options to activate password categories later
+
+  pswLowerCase = window.confirm("Do you want lowercase characters in your password?");
+  pswUpperCase = window.confirm("Do you want uppercase characters in your password?");
+  pswNumerical = window.confirm("Do you want numbers in your password?");
+  pswSpc = window.confirm("Do you want special characters in your password?");
+
+  // If all categories stay false (none are selected) then return
+
+  if (pswLowerCase === false && pswUpperCase === false && pswNumeric === false && pswSpecial === false) {
+    window.alert("You must select at least one character tvpe"); 
+    return;
+   }
+
+  // Creates a variable that can contain categories
+  var selectedChars = [];
+  
+  // If categories are true push the content into the selectedChars variable
+  if (pswLowerCase = true) {
+      selectedChars.push(lowerCase);
+  }
+  
+  if (pswUpperCase = true) {
+      selectedChars.push(upperCase);
+  }
+  
+  if (pswNumerical = true) {
+      selectedChars.push(numerical);
+  }
+  
+  if (pswSpc = true) {
+      selectedChars.push(spcChars);
+  }
+  
+   // Creates blank string to fill in with randomised category content
+
+   var password = "";
+
+   // Randomises output of selectedChars
+
+  for (var i = 0; i < pswLength; i++) {
+      var randomChar = selectedChars[Math.floor(Math.random() * selectedChars.length)];
+      password += randomChar [Math.floor(Math.random() * randomChar.length)];
+  }
+
+  return (password)
+  }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
