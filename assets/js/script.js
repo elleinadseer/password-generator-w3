@@ -52,19 +52,19 @@ function generatePassword() {
   var selectedChars = [];
   
   // If categories are true push the content into the selectedChars variable
-  if (pswLowerCase = true) {
+  if (pswLowerCase) {
       selectedChars.push(lowerCase);
   }
   
-  if (pswUpperCase = true) {
+  if (pswUpperCase) {
       selectedChars.push(upperCase);
   }
   
-  if (pswNumerical = true) {
+  if (pswNumerical) {
       selectedChars.push(numerical);
   }
   
-  if (pswSpc = true) {
+  if (pswSpc) {
       selectedChars.push(spcChars);
   }
   
