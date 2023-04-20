@@ -20,7 +20,17 @@ function generatePassword() {
   const numerical = "0123456789";
   const spcChars = "!@#$%^&*()_+~`|}{[]\:;?><,./-=";
 
+  // Set default number for password length
+  // Creates prompts and measures whether the answer is between 8-128
+
+  var pswLength = 0;  
+  pswLength = window.prompt("Select between 8 and 128 characters for your password length:");
+  if (pswLength < 8 || pswLength > 128) {
+      window.alert("Password is not between 8 and 128 characters");
+      return;
   }
+
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
